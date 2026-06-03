@@ -5,21 +5,21 @@ metadata:
   namespace: argocd
 
   annotations:
-    # REQUIRED FORMAT (THIS IS THE FIX)
-    argocd-image-updater.argoproj.io/image-list: app=docker.io/sumonaust/python-app:*
+    # image definition (IMPORTANT FORMAT)
+    argocd-image-updater.argoproj.io/image-list: app=docker.io/sumonaust/python-app
 
-    # container name inside Deployment
+    # container name in deployment
     argocd-image-updater.argoproj.io/app.container: python-app
 
-    # update strategy
+    # update strategy for SHA tags
     argocd-image-updater.argoproj.io/app.update-strategy: newest-build
+
+    # allow only git SHA tags
+    argocd-image-updater.argoproj.io/app.allow-tags: regexp:^([a-f0-9]{7,40})$
 
     # git write-back
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
-
-    # optional safety filter
-    argocd-image-updater.argoproj.io/app.allow-tags: regexp:^([a-f0-9]{7,40})$
 
 spec:
   project: default
