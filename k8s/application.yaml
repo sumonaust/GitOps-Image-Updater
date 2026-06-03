@@ -5,16 +5,10 @@ metadata:
   namespace: argocd
 
   annotations:
-    argocd-image-updater.argoproj.io/image-list: app=docker.io/sumonaust/python-app
-
-    # IMPORTANT: correct for SHA tags
-    argocd-image-updater.argoproj.io/app.update-strategy: newest-build
-
-    # FIXED regex (THIS is your main bug fix)
-    argocd-image-updater.argoproj.io/app.allow-tags: regexp:^[a-f0-9]{7}$
-
+    argocd-image-updater.argoproj.io/image-list: docker.io/sumonaust/python-app
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/update-strategy: newest-build
 
 spec:
   project: default
