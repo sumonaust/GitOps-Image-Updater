@@ -6,10 +6,10 @@ metadata:
 
   annotations:
     argocd-image-updater.argoproj.io/image-list: app=docker.io/sumonaust/python-app
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/app.update-strategy: newest-build
     argocd-image-updater.argoproj.io/app.allow-tags: regexp:^([a-f0-9]{7,40})$
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
 
 spec:
   project: default
