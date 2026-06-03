@@ -1,0 +1,31 @@
+name: CI Build & Push
+
+on:
+  push:
+    branches: ["main"]
+
+env:
+  IMAGE: docker.io/sumonaust/python-app
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set IMAGE TAG (Git SHA)
+        run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_ENV
+
+      - name: Login DockerHub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Image
+        run: docker build -t $IMAGE:$TAG .
+
+      - name: Push Image
+        run: docker push $IMAGE:$TAG
