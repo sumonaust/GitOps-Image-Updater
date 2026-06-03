@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: python-app
-          image: docker.io/sumonaust/python-app:011660c
+          image: docker.io/sumonaust/python-app:54a4a8e
           ports:
             - containerPort: 5000
