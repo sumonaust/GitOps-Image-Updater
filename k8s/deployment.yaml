@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: python-app
-          image: docker.io/YOUR_DOCKERHUB_USER/python-app:REPLACED_BY_IMAGE_UPDATER
+          image: docker.io/sumonaust/python-app:REPLACED_BY_IMAGE_UPDATER
           ports:
             - containerPort: 5000
