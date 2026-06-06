@@ -15,7 +15,6 @@ jobs:
 build-and-deploy:
 runs-on: ubuntu-latest
 
-```
 steps:
   # -----------------------------
   # 1. Checkout application repo
@@ -98,4 +97,4 @@ steps:
 
       git commit -m "Update image to $SHORT_SHA"
       git push
-```
+
